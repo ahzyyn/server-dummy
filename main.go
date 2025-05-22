@@ -100,8 +100,8 @@ func main() {
 	fmt.Println("Server running on port 1414")
 
 	// Register POST endpoint
-	router.POST("/api/data", HandleData)
-	router.POST("/api/signature", SignatureDummy)
+	router.POST("/api/v3/qris/acquirer/generate", HandleData)
+	router.POST("/api/generate", SignatureDummy)
 
 	// Start server with error handling
 	if err := router.Run(":1414"); err != nil {
