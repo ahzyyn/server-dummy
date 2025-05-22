@@ -43,7 +43,7 @@ func (r *RequestDTO) Validate() bool {
 
 // Handler function to process requests
 func HandleData(c *gin.Context) {
-	var req RequestDTO
+	var req map[string]interface{}
 
 	// Bind JSON to struct
 	if err := c.ShouldBindJSON(&req); err != nil {
@@ -55,12 +55,12 @@ func HandleData(c *gin.Context) {
 	}
 
 	// Validate request data
-	if !req.Validate() {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"message": "Request data is required",
-		})
-		return
-	}
+	// if !req.Validate() {
+	// 	c.JSON(http.StatusBadRequest, gin.H{
+	// 		"message": "Request data is required",
+	// 	})
+	// 	return
+	// }
 
 	// Create response
 	resp := ResponseDTO{
